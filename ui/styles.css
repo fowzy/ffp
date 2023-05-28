@@ -1,10 +1,17 @@
 * {
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box; /* Add this line */
+    /* outline: 1px solid red; */
+  }
+
+  html, body {
+    height: 100%; /* Add this line */
   }
   
   form {
-    width: 25%;
+    margin: 0 auto;
+    width: 90%;
     background-color: #d6d6d6;
     position: absolute;
     top: 50%;
@@ -14,9 +21,8 @@
     border-radius: 3px;
     padding: 30px 60px;
     box-shadow: 0px 0px 20px 0px rgba(204,204,204,1);
-    max-width: 400px; /* Adjust the value as needed */
+     max-width: 400px; /*Adjust the value as needed */
     width: 90%; /* Optional: fallback width for browsers that don't support max-width */
-  
   }
   
   form button {
@@ -51,26 +57,54 @@
     max-width: 100%;
     height: auto;
   }
-  
-  
-  @media (max-width: 768px) {
+
+    @media (max-width: 480px) {
     form {
+      top: 50%;
+      left:50%;
+      transform: translate(-50%, -30%);  
       width: 90%;
       padding: 20px;
     }
     
     .image-container {
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 5px;
-    }
+      overflow-x: auto;
+      white-space: nowrap;
+      }
     
     .loader {
       margin: 10px auto;
     }
+
+    .footer {
+      position: relative;
+      z-index: 9999; /* Ensure the footer is above the disclaimer */
+    }
   }
-  
   
     footer {
       text-align: center;
       margin-top: 20px;
     }
+
+    .disclaimer{  
+      font-size: small;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #f2f2f2;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .exit-button {
+      background-color: transparent;
+      border: none;
+      font-size: 14px;
+      color: #666;
+      font-weight: bold;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+

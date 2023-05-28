@@ -105,3 +105,16 @@ downloadButton.addEventListener('click', function() {
       });
   });
 });
+
+
+$(document).ready(function() {
+    // Show the disclaimer when the page loads on mobile devices
+    if ($(window).width() <= 480) {
+      $('#disclaimer').show();
+    }
+  
+    // Handle exit button click event
+    $('#exitButton').click(function() {
+      $('#disclaimer').hide();
+    });
+  });
