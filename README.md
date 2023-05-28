@@ -5,9 +5,7 @@ F* Flash Photography, Download your digital pictures for your graudation for FRE
 Create a docker image:
 >docker build -t ffp .
 
-Once the image has been created, excute the container by using the following command:
->docker run -p 8000:8000 ffp-ocean
-
 To run the container in detached mode (in the background): 
->docker run -d -p 8000:8000 ffp-ocean
+>docker run -t -d -p 8000:8000 -v /var/www/html/ffp:/var/www/html/ffp ffp
 
+>docker run -t -p 8000:8000 -v /var/www/html/ffp:/var/www/html/ffp ffp

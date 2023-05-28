@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests 
 import re
+import os
 from pathlib import Path
 
 def startSession(pinNumber, StudentlastName): 
@@ -28,11 +29,17 @@ def imageGrabber(userID,lastName,id,fs,s):
         
         requests.get(initURL)
         img_data = requests.get(magURL).content
-        path = f'/var/www/html/ffp/images/{userID}/{lastName}'
-        Path(path).mkdir(parents=True, exist_ok=True)
+        systemPath = '/var/www/html/'
+        path = f'ffp/images/{userID}/{lastName}'
+        fullPath = f'{systemPath}{path}'
+        isExist = os.path.exists(fullPath)
+        if not isExist:
+            os.makedirs(fullPath)
+            print("The new directory is created!")
+        # Path(fullPath).mkdir(parents=True, exist_ok=True)
             
         # with open(f'{path}/image_{fs[f]}{s[1]}.jpg', 'wb') as handler:
-        with open(f'{path}/image_{f}.jpg', 'wb') as handler:
+        with open(f'{fullPath}/image_{f}.jpg', 'wb') as handler:
             handler.write(img_data)
             print(f'Downloaded image {f}')
     return path
@@ -41,7 +48,7 @@ def verify(response, lastName):
     soup = BeautifulSoup(response.content, "html.parser") 
     lastNameVerification = soup.find(attrs={"id": "labGraduate"}).text.split(' ')
     if(lastName.upper() == lastNameVerification[-1].upper()):
-        print(f'Logged in as \'{lastNameVerification}\'')
+        print(f'Logged in as \'{lastNameVerification[-1]}\'')
         return True
     else:
         return False
