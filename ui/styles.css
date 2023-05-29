@@ -14,7 +14,7 @@
     width: 90%;
     background-color: #d6d6d6;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left:50%;
     transform: translate(-50%, -50%);
     border: 1px solid #d6d6d6;
@@ -60,7 +60,7 @@
 
     @media (max-width: 480px) {
     form {
-      top: 50%;
+      top: 60%;
       left:50%;
       transform: translate(-50%, -30%);  
       width: 90%;
@@ -108,3 +108,7 @@
       cursor: pointer;
     }
 
+    .explainImg{
+      max-width: 100%;
+      height: auto;
+    }
