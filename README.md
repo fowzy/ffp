@@ -1,5 +1,5 @@
 # ffp
-F* Flash Photography, Download your digital pictures for your graudation for FREE, no charge! Tired of college spam and I want to help you not get scammed by your college.
+F* Flash Photography, Download your digital pictures for your graudation for FREE, this small project was built for education purpose, developing my skills and learn how to use Fast API and build simple UI along with it.
 
 ## Instructions for Running:
 Create a docker image:
